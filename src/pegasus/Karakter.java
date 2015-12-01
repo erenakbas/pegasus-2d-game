@@ -180,11 +180,11 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			 g.drawImage(bulut_2, bulut_x2, bulut_y2,bulut_gen2,bulut_yuk2, null);
 			 g.drawImage(bulut_3, bulut_x3, bulut_y3,bulut_gen3,bulut_yuk3, null);
 			
-			 g.drawImage(e1, x, y, gen1, yuk1,null);
-			 g.drawImage(engel1, x1, y2, gen2, yuk2,null);
-			 g.drawImage(engel3, x2, y3, gen3, yuk3,null);
+			 g.drawImage(engel_1, engel_x1, engel_y1, engel_gen1, engel_yuk1,null);
+			 g.drawImage(engel_2, engel_x2, engel_y2, engel_gen2, engel_yuk2,null);
+			 g.drawImage(engel_3, engel_x3, engel_y3,engel_gen3, engel_yuk3,null);
 			 
-	         g.drawImage(asp, player_x, player_y, player_gen, player_yuk,null);
+	         g.drawImage(at, player_x, player_y, player_gen, player_yuk,null);
 	       
 	         
 	         String yazi;
@@ -210,9 +210,9 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		
 		
 		Rectangle at =new Rectangle(player_x ,player_y,player_gen-70,player_yuk-50);
-		Rectangle e1 =new Rectangle(x,y,gen1,yuk1);
-		Rectangle e2 =new Rectangle(x1,y2,gen2,yuk2);
-		Rectangle e3 =new Rectangle(x2,y3,gen3,yuk3);
+		Rectangle e1 =new Rectangle(engel_x1,engel_y1,engel_gen1,engel_yuk1);
+		Rectangle e2 =new Rectangle(engel_x2,engel_y2,engel_gen2,engel_yuk2);
+		Rectangle e3 =new Rectangle(engel_x3,engel_y3,engel_gen3,engel_yuk3);
 		for(int i=0; i<=3; i++){
 		if( at.intersects(e1) || at.intersects(e2) || at.intersects(e3)
 			//	(player_y!=145 &&  player_x+300==x ) || (player_y!=145 && player_x+300==x1) ||(player_y!=145 && player_x+300==x2)
@@ -229,15 +229,15 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			
 			
 	
-			ax-=2;
-			ax2-=2;
-			ax3-=2;
-			bx1-=1;
-			bx2-=1;
-			bx3-=1;
-			x-=1;
-			x1-=1;
-			x2-=1;
+			arkaplan_x1-=2;
+			arkaplan_x2-=2;
+			arkaplan_x3-=2;
+			bulut_x1-=1;
+			bulut_x2-=1;
+			bulut_x3-=1;
+			engel_x1-=1;
+			engel_x2-=1;
+			engel_x3-=1;
 			}
 	
 		
@@ -282,19 +282,19 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			}
 			
 		}
-		if(x2<0){
-			x=1550;
-			x1=x+r.nextInt(1000)+100;
-			x2=x1+r.nextInt(1000)+100;
-			gen1=r.nextInt(100)+55;
-			yuk1=r.nextInt(70)+55;
-			y=450-yuk1;
-			gen2=r.nextInt(100)+55;
-			yuk2=r.nextInt(70)+55;
-			y2=450-yuk2;
-			gen3=r.nextInt(100)+55;
-			yuk3=r.nextInt(70)+55;
-			y3=450-yuk3;
+		if(engel_x3<0){
+			engel_x1=1550;
+			engel_x2=engel_x1+r.nextInt(1000)+100;
+			engel_x3=engel_x2+r.nextInt(1000)+100;
+			engel_gen1=r.nextInt(100)+55;
+			engel_yuk1=r.nextInt(70)+55;
+			engel_y1=450-engel_yuk1;
+			engel_gen2=r.nextInt(100)+55;
+			engel_yuk2=r.nextInt(70)+55;
+			engel_y2=450-engel_yuk2;
+			engel_gen3=r.nextInt(100)+55;
+			engel_yuk3=r.nextInt(70)+55;
+			engel_y3=450-engel_yuk3;
 			
 			
 			
@@ -302,30 +302,30 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			
 		
 			}
-		if(bx3<0){
-		bx1=1500;
-		by1=50+r.nextInt(50);
-		bgen1=100;
-		byuk1=50;
+		if(bulut_x3<0){
+		bulut_x1=1500;
+		bulut_y1=50+r.nextInt(50);
+		bulut_gen1=100;
+		bulut_yuk1=50;
 		
-		bx2=bx1+r.nextInt(1000)+300;
-		by2=60+r.nextInt(50);
-		bgen2=r.nextInt(50)+100;
-		byuk2=r.nextInt(20)+50;
+		bulut_x2=bulut_x1+r.nextInt(1000)+300;
+		bulut_y2=60+r.nextInt(50);
+		bulut_gen2=r.nextInt(50)+100;
+		bulut_yuk2=r.nextInt(20)+50;
 		
-		bx3=bx2+r.nextInt(1000)+300;
-		by3=80+r.nextInt(50);
-		bgen3=r.nextInt(50)+100;
-		byuk3=r.nextInt(20)+50;
+		bulut_x3=bulut_x2+r.nextInt(1000)+300;
+		bulut_y3=80+r.nextInt(50);
+		bulut_gen3=r.nextInt(50)+100;
+		bulut_yuk3=r.nextInt(20)+50;
 		}
 		
 		
 		for(int a=0;a<3;a++){
 			
-			if(ax3<0){
-			ax=0;
-			ax2=ax+2048;
-			ax3=ax2+2048;
+			if(arkaplan_x3<0){
+			arkaplan_x1=0;
+			arkaplan_x2=arkaplan_x1+2048;
+			arkaplan_x3=arkaplan_x2+2048;
 			
 			
 			
