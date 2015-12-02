@@ -1,11 +1,10 @@
 package pegasus;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
 public class Main {
+
+	public static String[] arg;
 
 	public static void main(String[] args) {
 		
@@ -20,8 +19,7 @@ public class Main {
 		pencere.setVisible(true);
 		pencere.addKeyListener(k);
 		pencere.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+		arg = args;
 	}
 
 }
