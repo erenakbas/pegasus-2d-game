@@ -71,7 +71,8 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	Image engel_3;
 	int sayac=1;
 	int puan=1;
-	
+	int sayac2=1;
+	int geri=0;
 	
 	
 	
@@ -137,15 +138,15 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		
 		 engel_x1=1350;
 		
-		 engel_x2= engel_x1+r.nextInt(800)+250;
-		 engel_x3= engel_x2+r.nextInt(800)+250;	
-		 engel_gen1=r.nextInt(100)+55;
+		 engel_x2= engel_x1+r.nextInt(800)+350;
+		 engel_x3= engel_x2+r.nextInt(800)+350;	
+		 engel_gen1=r.nextInt(50)+45;
 		 engel_yuk1=r.nextInt(70)+55;
 		 engel_y1=450- engel_yuk1;
-		 engel_gen2=r.nextInt(100)+55;
+		 engel_gen2=r.nextInt(50)+45;
 		 engel_yuk2=r.nextInt(70)+55;
 		 engel_y2=450- engel_yuk2;
-		 engel_gen3=r.nextInt(100)+55;
+		 engel_gen3=r.nextInt(50)+45;
 		 engel_yuk3=r.nextInt(70)+55;
 		 engel_y3=450- engel_yuk3;
 		
@@ -229,9 +230,9 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			
 			
 	
-			arkaplan_x1-=2;
-			arkaplan_x2-=2;
-			arkaplan_x3-=2;
+			arkaplan_x1-=1;
+			arkaplan_x2-=1;
+			arkaplan_x3-=1;
 			bulut_x1-=1;
 			bulut_x2-=1;
 			bulut_x3-=1;
@@ -261,27 +262,48 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		//x-=4;
 		//x1-=4;
 		//x2-=4;
+		
 		if(z>0){z++;}
 		
 		if(z==25){
 			
 			
 			player_y=280;
-			player_x=290;
+			player_x=300;
 			z=0;
+			geri=1;
+			
+			/*	
+			 
+			 */
 			
 			
 
 			
 		}
 		
-		if(z==0){
-			
-			for(int j =0;j>100;j++){
-			player_x-=1;
-			}
-			
-		}
+        	
+        
+		
+		if(geri==1){
+				
+				 
+	             
+			for(int j =0;j<5;j++)
+				{
+					
+				player_x-=1;
+				
+				if(player_x==0){
+					geri=0;
+				}
+				
+				}
+	             
+				
+			} 
+		 
+         
 		if(engel_x3<0){
 			engel_x1=1550;
 			engel_x2=engel_x1+r.nextInt(1000)+100;
@@ -334,6 +356,7 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		}
 			}
 		
+		
 		repaint();
 		
 	}
@@ -343,7 +366,7 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	public void mouseClicked(MouseEvent e) {
 		
 		player_y=160;//(280-125)
-	 	player_x=150;
+	 	player_x=200;
 		z=1;
 		
 		
