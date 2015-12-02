@@ -13,7 +13,6 @@ import javax.swing.Timer;
 
 public class Karakter extends JPanel implements ActionListener,MouseListener,KeyListener {
 
-    public boolean oyun_devam_ediyor_mu = false;
 
 	int arkaplan_x1,arkaplan_y1,arkaplan_gen1,arkaplan_yuk1;
 	int arkaplan_x2,arkaplan_y2,arkaplan_gen2,arkaplan_yuk2;
@@ -25,10 +24,11 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	int bulut_x2,bulut_y2,bulut_gen2,bulut_yuk2;
 	int bulut_x3,bulut_y3,bulut_gen3,bulut_yuk3;
 	
-	int engel_x1,engel_y1,engel_gen1,engel_yuk1;
-	int engel_x2,engel_y2,engel_gen2,engel_yuk2;
-	int engel_x3,engel_y3,engel_gen3,engel_yuk3;
+	int mermi_x1,mermi_y1,mermi_gen1,mermi_yuk1;
+	int mermi_x2,mermi_y2,mermi_gen2,mermi_yuk2;
+	int mermi_x3,mermi_y3,mermi_gen3,mermi_yuk3;
 	
+
 	int z=0;
 	
 	Random r = new Random();
@@ -43,6 +43,9 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	Image engel_1;
 	Image engel_2;
 	Image engel_3;
+	Image mermi1;
+	Image mermi2;
+	Image mermi3;
 	int sayac=1;
 	int puan=1;
 	int geri=0;
@@ -85,7 +88,7 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		bulut_y3=80;
 		bulut_gen3=r.nextInt(100)+100;
 		bulut_yuk3=r.nextInt(50)+100;
-
+		
 		arka_plan=Toolkit.getDefaultToolkit().getImage("src/aap.png");
 		arka_plan2=Toolkit.getDefaultToolkit().getImage("src/aap2.png");
 		arka_plan3=Toolkit.getDefaultToolkit().getImage("src/aap3.png");
@@ -95,23 +98,26 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		bulut_1=Toolkit.getDefaultToolkit().getImage("src/b1.png");
 		bulut_2=Toolkit.getDefaultToolkit().getImage("src/b2.png");
 		bulut_3=Toolkit.getDefaultToolkit().getImage("src/b3.png");
-		engel_1=Toolkit.getDefaultToolkit().getImage("src/e1.png");
-		engel_2=Toolkit.getDefaultToolkit().getImage("src/engel1.png");
-		engel_3=Toolkit.getDefaultToolkit().getImage("src/engel3.png");
+
+		mermi1=Toolkit.getDefaultToolkit().getImage("src/mermi1.png");
+		mermi2=Toolkit.getDefaultToolkit().getImage("src/mermi2.png");  // orjinal mermi
+		mermi3=Toolkit.getDefaultToolkit().getImage("src/mermi3.png");
 		
-		 engel_x1=1350;
-		
-		 engel_x2= engel_x1+r.nextInt(800)+350;
-		 engel_x3= engel_x2+r.nextInt(800)+350;	
-		 engel_gen1=r.nextInt(50)+45;
-		 engel_yuk1=r.nextInt(70)+55;
-		 engel_y1=450- engel_yuk1;
-		 engel_gen2=r.nextInt(50)+45;
-		 engel_yuk2=r.nextInt(70)+55;
-		 engel_y2=450- engel_yuk2;
-		 engel_gen3=r.nextInt(50)+45;
-		 engel_yuk3=r.nextInt(70)+55;
-		 engel_y3=450- engel_yuk3;
+
+		 
+		mermi_x1=1350;
+			
+		mermi_x2= mermi_x1+r.nextInt(800)+350;
+		mermi_x3= mermi_x2+r.nextInt(800)+350;	
+		mermi_gen1=r.nextInt(45)+55;
+		mermi_yuk1=r.nextInt(70)+55;
+		mermi_y1=450- mermi_yuk1;
+		mermi_gen2=r.nextInt(45)+55;
+		mermi_yuk2=r.nextInt(70)+55;
+		mermi_y2=450- mermi_yuk2;
+		mermi_gen3=r.nextInt(45)+55;
+		mermi_yuk3=r.nextInt(70)+55;
+		mermi_y3=450- mermi_yuk3;
 		
 		zaman.start();
 		
@@ -124,42 +130,44 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	{
 		
 		super.paintComponent(g);
+		g.drawImage(arka_plan, arkaplan_x1, arkaplan_y1, arkaplan_gen1, arkaplan_yuk1, null);
+        g.drawImage(arka_plan2, arkaplan_x2, arkaplan_y2, arkaplan_gen2, arkaplan_yuk2, null);
+        g.drawImage(arka_plan3, arkaplan_x3, arkaplan_y3, arkaplan_gen3, arkaplan_yuk3, null);
 
-            if(zaman.isRunning()){
-                oyun_devam_ediyor_mu = true;
-                g.drawImage(arka_plan, arkaplan_x1, arkaplan_y1, arkaplan_gen1, arkaplan_yuk1, null);
-                g.drawImage(arka_plan2, arkaplan_x2, arkaplan_y2, arkaplan_gen2, arkaplan_yuk2, null);
-                g.drawImage(arka_plan3, arkaplan_x3, arkaplan_y3, arkaplan_gen3, arkaplan_yuk3, null);
+        g.drawImage(bulut_1, bulut_x1, bulut_y1,bulut_gen1,bulut_yuk1, null);
+        g.drawImage(bulut_2, bulut_x2, bulut_y2,bulut_gen2,bulut_yuk2, null);
+        g.drawImage(bulut_3, bulut_x3, bulut_y3,bulut_gen3,bulut_yuk3, null);
 
-                g.drawImage(bulut_1, bulut_x1, bulut_y1,bulut_gen1,bulut_yuk1, null);
-                g.drawImage(bulut_2, bulut_x2, bulut_y2,bulut_gen2,bulut_yuk2, null);
-                g.drawImage(bulut_3, bulut_x3, bulut_y3,bulut_gen3,bulut_yuk3, null);
-
-                g.drawImage(engel_1, engel_x1, engel_y1, engel_gen1, engel_yuk1,null);
-                g.drawImage(engel_2, engel_x2, engel_y2, engel_gen2, engel_yuk2,null);
-                g.drawImage(engel_3, engel_x3, engel_y3,engel_gen3, engel_yuk3,null);
-
-                g.drawImage(at, player_x, player_y, player_gen, player_yuk,null);
+        g.drawImage(at, player_x, player_y, player_gen, player_yuk,null);
+        
+        g.drawImage(mermi1, mermi_x1, mermi_y1, mermi_gen1, mermi_yuk1, null);
+        g.drawImage(mermi2, mermi_x2, mermi_y2, mermi_gen2, mermi_yuk2, null);
+        g.drawImage(mermi3, mermi_x3, mermi_y3, mermi_gen3, mermi_yuk3, null);
 
 
-                String yazi;
+        String yazi;
 
 
-                yazi=Integer.toString(puan);
+        yazi=Integer.toString(puan);
 
-                g.drawString("puan:"+yazi, 25, 25);
-                sayac++;
-                if(sayac % 10 == 0){
-                    puan+=1;
-                }
+        g.drawString("puan:"+yazi, 25, 25);
+        sayac++;
+        if(sayac % 10 == 0){
+            puan+=1;
+        }
+		
 
-            }
-            else { //pause yani engele carptiginda cikan ekran
+        if(zaman.isRunning()){
+          
 
-                g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-                g.drawString("Tekrar oynamak icin Enter'a Basin", 0,150);
-                oyun_devam_ediyor_mu = false;
-            }
+        }
+        else { //pause yani engele carptiginda cikan ekran
+
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+            g.drawString("Tekrar oynamak icin Enter'a Basin", 0,150);
+            g.drawString("puanýnýz: "+puan, 50, 50);
+            
+        }
 
 	}
 	
@@ -167,18 +175,21 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Rectangle at =new Rectangle(player_x ,player_y,player_gen-70,player_yuk-50);
-		Rectangle e1 =new Rectangle(engel_x1,engel_y1,engel_gen1,engel_yuk1);
-		Rectangle e2 =new Rectangle(engel_x2,engel_y2,engel_gen2,engel_yuk2);
-		Rectangle e3 =new Rectangle(engel_x3,engel_y3,engel_gen3,engel_yuk3);
+		Rectangle at =new Rectangle(player_x ,player_y,player_gen-100,player_yuk-50);
+	
+		Rectangle e1 =new Rectangle(mermi_x1,mermi_y1,mermi_gen1-50,1);
+		Rectangle e2 =new Rectangle(mermi_x2,mermi_y2,mermi_gen2-50,1);
+		Rectangle e3 =new Rectangle(mermi_x3,mermi_y3,mermi_gen3-50,1);
+		
 		for(int i=0; i<=3; i++){
-		if( at.intersects(e1) || at.intersects(e2) || at.intersects(e3)){
-            oyun_devam_ediyor_mu = false;
+		if( at.intersects(e1) || at.intersects(e2) || at.intersects(e3)		){
 			zaman.stop();
 
 		}
 		
 		else{
+			
+			
 			
 			
 	
@@ -188,9 +199,12 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 			bulut_x1-=1;
 			bulut_x2-=1;
 			bulut_x3-=1;
-			engel_x1-=1;
-			engel_x2-=1;
-			engel_x3-=1;
+			mermi_x1-=1;
+			mermi_x2-=1;
+			mermi_x3-=1;
+			mermi_x1-=1;
+			mermi_x2-=1;
+			mermi_x3-=1;
 			}
 
 
@@ -199,13 +213,18 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 
 		if(z>0){z++;}
 		
-		if(z==25){
+		if(z==10){
 			
 			
 			player_y=280;
-			player_x=300;
+			player_x=player_x+300;
 			z=0;
 			geri=1;
+		}
+		if (player_x>800){
+			
+			player_x=50;
+			geri=2;
 		}
 		
         	
@@ -220,6 +239,23 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 					
 				player_x-=1;
 				
+				if(player_x==50){
+					geri=0;
+				}
+				
+				}
+	             
+				
+			} 
+		if(geri==2){
+			
+			 
+            
+			for(int j =0;j<100;j++)
+				{
+					
+				player_x-=1;
+				
 				if(player_x==0){
 					geri=0;
 				}
@@ -228,25 +264,22 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	             
 				
 			} 
-		 
-         
-		if(engel_x3<0){
-			engel_x1=1550;
-			engel_x2=engel_x1+r.nextInt(1000)+100;
-			engel_x3=engel_x2+r.nextInt(1000)+100;
-			engel_gen1=r.nextInt(100)+55;
-			engel_yuk1=r.nextInt(70)+55;
-			engel_y1=450-engel_yuk1;
-			engel_gen2=r.nextInt(100)+55;
-			engel_yuk2=r.nextInt(70)+55;
-			engel_y2=450-engel_yuk2;
-			engel_gen3=r.nextInt(100)+55;
-			engel_yuk3=r.nextInt(70)+55;
-			engel_y3=450-engel_yuk3;
-				
-			
+
 		
-			}
+		if(mermi_x3<0){
+			mermi_x1=1550;
+			mermi_x2=mermi_x1+r.nextInt(1000)+100;
+			mermi_x3=mermi_x2+r.nextInt(1000)+100;
+			mermi_gen1=r.nextInt(45)+55;
+			mermi_yuk1=r.nextInt(70)+55;
+			mermi_y1=450-mermi_yuk1;
+			mermi_gen2=r.nextInt(45)+55;			
+			mermi_yuk2=r.nextInt(70)+55;
+			mermi_y2=450-mermi_yuk2;
+			mermi_gen3=r.nextInt(45)+55;
+			mermi_yuk3=r.nextInt(70)+55;
+			mermi_y3=450-mermi_yuk3;
+		}
 		if(bulut_x3<0){
 		bulut_x1=1500;
 		bulut_y1=50+r.nextInt(50);
@@ -277,7 +310,10 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 		
 		
 		}
+			
+			
 			}
+		
 		
 		
 		repaint();
@@ -326,12 +362,13 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			player_y=160;
+			player_y=160;//(280-125)
+		 	player_x=200;
 			z=1;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_ENTER){  // oyun restart kodu
 
-            if(!oyun_devam_ediyor_mu) {
+            if(!zaman.isRunning()) {
                 z = 0;
                 sayac = 1;
                 puan = 1;
@@ -367,24 +404,23 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
                 bulut_gen3 = r.nextInt(100) + 100;
                 bulut_yuk3 = r.nextInt(50) + 100;
 
-                engel_x1 = 1350;
-
-                engel_x2 = engel_x1 + r.nextInt(800) + 350;
-                engel_x3 = engel_x2 + r.nextInt(800) + 350;
-                engel_gen1 = r.nextInt(50) + 45;
-                engel_yuk1 = r.nextInt(70) + 55;
-                engel_y1 = 450 - engel_yuk1;
-                engel_gen2 = r.nextInt(50) + 45;
-                engel_yuk2 = r.nextInt(70) + 55;
-                engel_y2 = 450 - engel_yuk2;
-                engel_gen3 = r.nextInt(50) + 45;
-                engel_yuk3 = r.nextInt(70) + 55;
-                engel_y3 = 450 - engel_yuk3;
+                
+                mermi_x1=1350;
+    			
+        		mermi_x2= mermi_x1+r.nextInt(800)+350;
+        		mermi_x3= mermi_x2+r.nextInt(800)+350;	
+        		mermi_gen1=r.nextInt(50)+45;
+        		mermi_yuk1=r.nextInt(70)+55;
+        		mermi_y1=450- mermi_yuk1;
+        		mermi_gen2=r.nextInt(50)+45;
+        		mermi_yuk2=r.nextInt(70)+55;
+        		mermi_y2=450- mermi_yuk2;
+        		mermi_gen3=r.nextInt(50)+45;
+        		mermi_yuk3=r.nextInt(70)+55;
+        		mermi_y3=450- mermi_yuk3;
 
                 player_x = 50;
                 player_y = 280;
-                player_gen = 300;
-                player_yuk = 200;
 
                 zaman.start();
             }
