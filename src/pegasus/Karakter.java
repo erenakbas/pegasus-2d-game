@@ -49,7 +49,7 @@ public class Karakter extends JPanel implements ActionListener,MouseListener,Key
 	
 	int player_x=50,player_y=250,player_gen=280,player_yuk=200;
 	
-	
+
 	
 	int mermi_x1,mermi_y1,mermi_gen1,mermi_yuk1;
 	int mermi_x2,mermi_y2,mermi_gen2,mermi_yuk2;
@@ -84,7 +84,7 @@ public static  int ekstra_puan=0;
 	Image mermi2;
 	Image mermi3;
 	
-//	private String isim;
+	private String isim;
 	
 	Image ates;
 	
@@ -103,14 +103,14 @@ public static	int puan=1;
 		
 		
 		
-	  /*   Veritabaný a = new Veritabaný();
+	     Veritabaný a = new Veritabaný();
 	   		try {
 				isim = a.dosya_oku()[0];
 				makspuan = Integer.parseInt(a.dosya_oku()[1]);
 			} catch (IOException e4) {
 				// TODO Auto-generated catch block
 				e4.printStackTrace();
-			}*/
+			}
 	   		
 		
 		t = new Thread(this);
@@ -249,10 +249,10 @@ public static	int puan=1;
         g.setFont(new Font("Times New Roman", Font.BOLD, 12));
         
         g.drawString("Avlanan Kus: "+(ekstra_puan/10), 25, 50);
-  /*      g.drawString("En Yüksek Skor ",25,75);
+        g.drawString("En Yüksek Skor ",25,75);
     	g.drawString(isim,115,75);
     	g.drawString(""+makspuan,(isim.length()*9)+115,75);
-*/
+
         
         
         if(!zaman.isRunning()){
@@ -332,7 +332,7 @@ public static	int puan=1;
 		
 		}
 		*/
-		if ((puan+ekstra_puan)>1200){
+		if ((puan+ekstra_puan)>200){
 			uc=1;
 			
 			
@@ -349,7 +349,7 @@ public static	int puan=1;
 		    	   makspuan=((puan+ekstra_puan));
 		    	
 		    	   
-		/*     Veritabaný a = new Veritabaný();
+		     Veritabaný a = new Veritabaný();
 		   		
 		   		a.dosyaAc();
 		   		a.kayýtEkle();
@@ -359,7 +359,7 @@ public static	int puan=1;
 				} catch (IOException e4) {
 					// TODO Auto-generated catch block
 					e4.printStackTrace();
-				}*/
+				}
 		        }
 		       
 		   		
@@ -403,7 +403,7 @@ public static	int puan=1;
 				    	   makspuan=((puan+ekstra_puan));
 				    	
 				    	   
-				 /*    Veritabaný a = new Veritabaný();
+				     Veritabaný a = new Veritabaný();
 				   		
 				   		a.dosyaAc();
 				   		a.kayýtEkle();
@@ -413,7 +413,7 @@ public static	int puan=1;
 						} catch (IOException e4) {
 							// TODO Auto-generated catch block
 							e4.printStackTrace();
-						}*/
+						}
 				        }
 					 
 				Main.pencere.setVisible(false);
@@ -809,16 +809,16 @@ public static	int puan=1;
 	@Override
 	public void run() {
 		while(true){
-	/*	try {
+		try {
 			FileInputStream fis = new FileInputStream("src/ap_muzik.mp3");
 		    Player playMP3 = new Player(fis);
 		    playMP3.play();
 	    } catch(Exception ex) {
 	        System.out.println("Error with playing sound.");
 	        ex.printStackTrace();
-	    }*/
+	    }
 		
-			try {
+		/*	try {
 
 
 				  AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("ap_muzik.wav"));
@@ -835,7 +835,7 @@ public static	int puan=1;
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 		
 			}
 	}
